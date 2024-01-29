@@ -1,2 +1,4 @@
 mysql
 .idea
+src/node_modules
+src/_ide_helper.php
