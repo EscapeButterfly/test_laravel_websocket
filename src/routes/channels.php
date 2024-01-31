@@ -25,4 +25,5 @@ Broadcast::channel('online-users', function (\App\Models\User $user) {
     if (Auth::check()) {
         return ['id' => $user->id, 'name' => $user->name];
     }
+    return false;
 });
