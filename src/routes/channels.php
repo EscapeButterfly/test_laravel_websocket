@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Broadcast;
 Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+
+Broadcast::channel('chat-message{id}', function ($user) {
+    return Auth::check();
+});
+
+Broadcast::channel('online-users', function (\App\Models\User $user) {
+    if (Auth::check()) {
+        return ['id' => $user->id, 'name' => $user->name];
+    }
+});
